@@ -1,14 +1,18 @@
-function Titulo() {
-    
-    let nome = "Ronaldinho Gaúcho";
-    const soma = 10+10;
-    const urlImg = ""
+import { useState } from "react"
+
+function Titulo({cor}) {
+    const[texto, setTexto] = useState("Um título do estado inicial")
+    const[inputText, setInputText] = useState("")
+
+    function clicou() {
+        setTexto(inputText);
+    }
 
     return (
         <div>
-            <h1>Aqui o indivíduo {nome} e o valor é: {soma}</h1>
-            <img src="" />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h1 style ={{color: cor}}>{texto}</h1>
+            <input value = {inputText} onChange={(e) => {setInputText(e.target.value)}} type = "text"></input>
+            <button onClick={clicou}>Mudar</button>
         </div>
     )
 }
